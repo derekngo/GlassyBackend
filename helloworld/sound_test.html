@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+    <head>
+        <!-- STYLES -->
+        {% block styles %}
+        {% endblock %}
+        
+		<script language="javascript" type="text/javascript">
+ 			function playSound(soundfile) {
+ 				document.getElementById("dummy").innerHTML = "<embed src=\""+soundfile+"\" hidden=\"true\" autostart=\"true\" loop=\"false\" />";
+ 			};
+ 		</script>
+
+        <!-- SCRIPTS -->
+        {% block scripts %}
+        {% endblock %}
+    </head> 
+	<body>
+		<!-- http://stackoverflow.com/questions/11060146/cant-play-audio-with-google-app-engine-it-works-locally -->
+		<table>
+        	<tr>    
+            	<td onmouseover="playSound('static/music/twinkle_twinkle.mid');">A</td>
+            	<td onmouseover="playSound('static/music/twinkle_twinkle.mid');">B</td>
+        	</tr>
+    	</table>
+		<span id="dummy"></span>
+		<audio src="static/music/twinkle_twinkle.mid" preload="auto" autoplay="autoplay"></audio>
+		<EMBED SRC="static/music/twinkle_twinkle.mid" HEIGHT=O AUTOSTART=TRUE LOOP=TRUE>
+	</body>
+</html>
+{% endautoescape %}

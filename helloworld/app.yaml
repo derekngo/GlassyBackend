@@ -1,9 +1,25 @@
-application: your-app-id
+application: glassy-backend 
 version: 1
 runtime: python27
 api_version: 1
 threadsafe: true
 
 handlers:
+- url: /music
+  static_dir: static/music
+
 - url: /.*
   script: helloworld.application
+
+# https://gist.github.com/darktable/873098
+# audio files
+
+#- url: /(.*\.(mid|midi|mp3|wav))
+#  static_files: static/\1
+#  upload: static/(.*\.(mid|midi|mp3|wav)) 
+
+libraries:
+- name: webapp2
+  version: latest
+- name: jinja2
+  version: latest
